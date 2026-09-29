@@ -11,12 +11,11 @@ Portfolio website for Karen Ortega, focused on automation, operations systems, c
 
 ## Main files
 
-- `index.html` — page content
-- `assets/styles.css` — styling
-- `assets/Karen-Ortega-Resume.pdf` — downloadable résumé
-- `assets/sales-dashboard.webp` — dashboard portfolio visual
-- `assets/self-correcting-automation.webp` — automation portfolio visual
+- `index.html` — portfolio homepage
+- `resume.html` — web résumé
+- `assets/styles.css` — site styling
 - `CNAME` — custom domain
+- `robots.txt` and `sitemap.xml` — basic search-engine files
 
 ## Positioning
 
