@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Case study: Karen Ortega rebuilt Affordable Window Systems' CRM and operational reporting in GoHighLevel with integrations, dashboards, QA, and documentation." />
+  <link rel="canonical" href="https://karenortega.dev/case-studies/affordable-window-systems.html" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <title>Affordable Window Systems Case Study | Karen Ortega</title>
+</head>
+<body>
+  <header class="site-header"><div class="container nav-wrap"><a class="brand" href="../index.html">Karen <span>Ortega</span></a><nav class="nav" aria-label="Main navigation"><a class="keep-mobile" href="../work.html">Work</a><a href="../about.html">About</a><a href="../resume.html">Résumé</a><a href="../index.html#contact" class="nav-cta">Work with me</a></nav></div></header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container narrow">
+        <div class="breadcrumbs"><a href="../index.html">Home</a> / <a href="../work.html">Work</a> / Affordable Window Systems</div>
+        <p class="kicker">CRM rebuild · Operations system · Home services</p>
+        <h1>Turning a CRM migration into a working operating system.</h1>
+        <p class="page-lead">Affordable Window Systems was moving away from a legacy CRM. The real challenge was not importing contacts. It was rebuilding the logic around sales, production, reporting, consent, follow-up, data quality, and team handoff so the new system could actually run the business.</p>
+      </div>
+    </section>
+
+    <section class="section soft">
+      <div class="container">
+        <div class="case-stats">
+          <div class="stat"><strong>3</strong><span>core pipelines covering sales, production & completed work</span></div>
+          <div class="stat"><strong>5+</strong><span>operational dashboards for live business visibility</span></div>
+          <div class="stat"><strong>87-step</strong><span>onboarding and implementation SOP</span></div>
+          <div class="stat"><strong>3,800+</strong><span>contacts in the email journey scope</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container case-shell">
+        <article class="case-body">
+          <p class="kicker">The situation</p>
+          <h2>The business needed more than a database replacement.</h2>
+          <p>When a company moves CRMs, it is tempting to think of the project as contacts, fields, and pipelines. In practice, the old system has usually accumulated years of operational assumptions: where a lead goes, when production takes over, how a balance is tracked, which numbers management relies on, and what happens when the data is incomplete.</p>
+          <p>My role was to help translate those real workflows into a GoHighLevel-based system that connected the front end of sales with the post-contract operation and reporting layer.</p>
+
+          <h2>What I built</h2>
+          <div class="flow">
+            <div class="flow-step"><span>1</span><div><strong>CRM structure</strong><p>Three core pipelines for Sales / New Lead, Production / Post-Contract, and Completed Jobs, with opportunity stages, custom fields, tags, and ownership logic reflecting the actual process.</p></div></div>
+            <div class="flow-step"><span>2</span><div><strong>Workflow automation</strong><p>Lead and opportunity automation, follow-up logic, internal notifications, stop-on-response behavior, duplicate suppression, and consent-aware communication rules.</p></div></div>
+            <div class="flow-step"><span>3</span><div><strong>Reporting layer</strong><p>Sales, Production, Balance Due, Job Cost, and Commission dashboards, plus later dashboard refinements including service revenue visibility.</p></div></div>
+            <div class="flow-step"><span>4</span><div><strong>Data & integrations</strong><p>Google Sheets, Make.com, Apps Script, and GoHighLevel API logic used where native reporting or data access needed additional structure.</p></div></div>
+            <div class="flow-step"><span>5</span><div><strong>Quality control</strong><p>Python-based health checking and troubleshooting for missing records, reporting mismatches, bad field updates, duplicates, and incomplete data that could affect the dashboards.</p></div></div>
+            <div class="flow-step"><span>6</span><div><strong>Documentation & handoff</strong><p>An 87-step onboarding SOP and supporting documentation so the build could be understood, repeated, maintained, and handed over without relying on memory.</p></div></div>
+          </div>
+
+          <h2>A reporting problem is often a data problem in disguise.</h2>
+          <p>One recurring lesson from the dashboards was that reporting accuracy depends on operational discipline upstream. For example, a completed job could disappear from a date-based report simply because its completion-date field had never been filled in. Rather than treating that as “the dashboard is broken,” I added diagnostics that made the missing source data visible.</p>
+          <p>That distinction matters. A dashboard should not quietly turn incomplete operations into confident-looking numbers.</p>
+
+          <h2>Compliance had to be part of the system design.</h2>
+          <p>The migration included older contact records, so communication logic could not be treated as an afterthought. I helped redesign opt-in, opt-out, DND, and consent-related workflows, pause unsafe communication paths, remove duplicate triggers, and make response behavior more controlled.</p>
+          <p>The result was a cleaner operating approach where communication rules were tied to consent state rather than simply whether a contact happened to exist in the CRM.</p>
+
+          <h2>What changed operationally</h2>
+          <ul>
+            <li>Sales and post-contract workflows were represented in one connected system instead of being fragmented across the old CRM and external reporting.</li>
+            <li>Management gained practical visibility into sales, production, balances, costs, and commissions.</li>
+            <li>Data issues could be diagnosed instead of silently distorting reporting.</li>
+            <li>Workflow and consent logic became more deliberate and easier to audit.</li>
+            <li>The system could be handed over with repeatable documentation rather than living only in the builder’s head.</li>
+          </ul>
+
+          <h2>Why this project represents how I work</h2>
+          <p>The strongest part of this project was not any single workflow. It was working across operations, CRM architecture, reporting, integrations, troubleshooting, documentation, and compliance without losing sight of the business process underneath them.</p>
+          <p>That is the kind of work I want to keep doing: making the backend less fragile and giving the team a clearer way to run it.</p>
+        </article>
+
+        <aside class="case-sidebar">
+          <h3>Project snapshot</h3>
+          <dl>
+            <dt>Client</dt><dd>Affordable Window Systems, Florida</dd>
+            <dt>Role</dt><dd>GoHighLevel CRM & automation builder / operations systems</dd>
+            <dt>Primary platform</dt><dd>GoHighLevel</dd>
+            <dt>Integrations</dt><dd>Make.com, Google Sheets, Apps Script, API logic</dd>
+            <dt>QA</dt><dd>Python health checks and diagnostics</dd>
+            <dt>Additional work</dt><dd>Voice AI, consent workflows, SOPs, reporting</dd>
+          </dl>
+          <div class="stack-list"><span class="chip">GHL</span><span class="chip">Make</span><span class="chip">Apps Script</span><span class="chip">Python</span><span class="chip">API</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="cta-section"><div class="container"><div class="cta-card"><div><p class="kicker">Next case study</p><h2>See how I handled subscription logic across Stripe, Make, and Zoho.</h2></div><div class="cta-actions"><a class="btn primary" href="stripe-zoho.html">Stripe → Zoho case</a><a class="btn secondary" href="../work.html">All work</a></div></div></div></section>
+  </main>
+
+  <footer><div class="container footer-row"><span>© 2026 Karen Ortega</span><span><a href="../work.html">Work</a> · <a href="../about.html">About</a> · <a href="../resume.html">Résumé</a></span></div></footer>
+</body>
+</html>
