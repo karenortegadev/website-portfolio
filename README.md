@@ -1,22 +1,24 @@
 # karenortega.dev
 
-Portfolio website for Karen Ortega, focused on automation, operations systems, client experience, integrations, and case-study proof.
+Personal portfolio for Karen Ortega, focused on operations systems, CRM automation, integrations, client experience, and case-study proof.
 
-## Publish with GitHub Pages
+## Site structure
 
-1. In GitHub: Settings → Pages → Deploy from a branch.
-2. Select `main` and `/ (root)`, then Save.
-3. The included `CNAME` points to `karenortega.dev`.
-4. Configure the domain DNS for GitHub Pages according to GitHub's current custom-domain instructions.
-
-## Main files
-
-- `index.html` — portfolio homepage
+- `index.html` — homepage
+- `work.html` — portfolio / case-study overview
+- `services.html` — ways to work with Karen
+- `about.html` — background and working philosophy
 - `resume.html` — web résumé
-- `assets/styles.css` — site styling
-- `CNAME` — custom domain
-- `robots.txt` and `sitemap.xml` — basic search-engine files
+- `case-studies/affordable-window-systems.html` — flagship GoHighLevel CRM rebuild
+- `case-studies/stripe-zoho.html` — Stripe → Make → Zoho integration
+- `case-studies/property-operations.html` — UK/AU/NZ operations background
+- `assets/styles.css` — shared warm editorial design system
+- `assets/karen-headshot.svg` — optimized professional portrait asset
+- `CNAME` — `karenortega.dev`
+- `robots.txt` / `sitemap.xml` — search-engine discovery
 
 ## Positioning
 
-The portfolio is built around case studies and proof rather than a software-only skills list. It highlights operational bottlenecks, the systems built to solve them, outcomes, and verified client feedback.
+The portfolio is intentionally built around problems, systems, outcomes, and verified client trust instead of presenting a generic software-skills list.
+
+The central positioning is that Karen works between operations and automation: understanding where work stalls, clarifying the operating path, then building the CRM, integration, reporting, QA, and documentation needed to make that process more resilient.
