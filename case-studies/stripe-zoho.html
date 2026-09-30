@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Case study: Stripe subscription events routed through Make.com to update Zoho CRM tiers, tags, and cancellation status automatically." />
+  <link rel="canonical" href="https://karenortega.dev/case-studies/stripe-zoho.html" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <title>Stripe → Zoho Automation Case Study | Karen Ortega</title>
+</head>
+<body>
+  <header class="site-header"><div class="container nav-wrap"><a class="brand" href="../index.html">Karen <span>Ortega</span></a><nav class="nav" aria-label="Main navigation"><a class="keep-mobile" href="../work.html">Work</a><a href="../about.html">About</a><a href="../resume.html">Résumé</a><a href="../index.html#contact" class="nav-cta">Work with me</a></nav></div></header>
+
+  <main>
+    <section class="page-hero"><div class="container narrow"><div class="breadcrumbs"><a href="../index.html">Home</a> / <a href="../work.html">Work</a> / Stripe → Zoho</div><p class="kicker">Integration · Subscription logic · CRM automation</p><h1>Keeping CRM access tiers in sync with what actually happened in Stripe.</h1><p class="page-lead">The goal was simple to say and surprisingly easy to get wrong: when a customer’s subscription changes, Zoho CRM should reflect the correct tier automatically, without leaving old tags behind or requiring manual cleanup.</p></div></section>
+
+    <section class="section soft"><div class="container"><div class="case-stats"><div class="stat"><strong>3</strong><span>subscription event types handled</span></div><div class="stat"><strong>3</strong><span>paid tier mappings</span></div><div class="stat"><strong>1</strong><span>cancellation path with clean tag logic</span></div><div class="stat"><strong>0</strong><span>manual tier changes needed on the working path</span></div></div></div></section>
+
+    <section class="section">
+      <div class="container case-shell">
+        <article class="case-body">
+          <p class="kicker">The problem</p>
+          <h2>A subscription status is only useful if every connected system agrees.</h2>
+          <p>The CRM needed to know whether a contact was on the Free Tier, Ignite, Growth, Scale, or Canceled. A new signup had to create the right contact state, upgrades and downgrades had to replace the old tier cleanly, and cancellation had to remove paid access rather than simply adding another tag on top.</p>
+          <p>The tricky part was not sending data from Stripe to Zoho. The tricky part was maintaining a trustworthy state across multiple event types.</p>
+
+          <h2>The event-driven flow</h2>
+          <div class="flow">
+            <div class="flow-step"><span>1</span><div><strong>Stripe event received</strong><p>The scenario listens for subscription-created, subscription-updated, and subscription-deleted events.</p></div></div>
+            <div class="flow-step"><span>2</span><div><strong>Route by event type</strong><p>A first router separates the active subscription paths from the cancellation path.</p></div></div>
+            <div class="flow-step"><span>3</span><div><strong>Derive plan and target tier</strong><p>Price IDs map to the intended CRM tier so the workflow has one clear target state rather than relying on free-text matching.</p></div></div>
+            <div class="flow-step"><span>4</span><div><strong>Update the Zoho record</strong><p>The contact record is updated with the relevant subscription information before tag changes are applied.</p></div></div>
+            <div class="flow-step"><span>5</span><div><strong>Remove stale tier tags</strong><p>Old paid-tier tags are removed so the contact cannot simultaneously look like multiple subscription levels.</p></div></div>
+            <div class="flow-step"><span>6</span><div><strong>Apply the new state</strong><p>The correct tier tag is added. On deletion, paid tiers are removed and the contact receives the Canceled state.</p></div></div>
+          </div>
+
+          <h2>The hardest part was dynamic data, not the router diagram.</h2>
+          <p>During the build, static updates could work while dynamic tag updates still failed. That meant separating “the API call works” from “the values being passed into the API call are correct.” I tested the pieces independently, corrected the update body and mapping, adjusted filters and aggregators, and then reintroduced the dynamic tier variables.</p>
+          <p>That debugging pattern is important in integration work. When several systems are connected, changing everything at once turns one error into a fog bank. I prefer to make one assumption testable at a time.</p>
+
+          <h2>Final logic</h2>
+          <ul>
+            <li>New Stripe signup: create or identify the CRM contact and establish the initial state.</li>
+            <li>Subscription created or updated: derive the current plan, update the record, remove old tier tags, and add the correct tier.</li>
+            <li>Subscription deleted: mark the canceled state, remove paid tiers, and apply the Canceled tag.</li>
+            <li>Unrelated events or unchanged states: stop rather than performing unnecessary writes.</li>
+          </ul>
+
+          <h2>What this project demonstrates</h2>
+          <p>Integrations are not really about moving JSON from one box to another. They are about maintaining business meaning across systems. In this case, the useful outcome was not “Stripe is connected to Zoho.” It was that the CRM could reliably represent the customer’s current subscription tier.</p>
+        </article>
+
+        <aside class="case-sidebar"><h3>Project snapshot</h3><dl><dt>Source</dt><dd>Stripe subscription events</dd><dt>Automation layer</dt><dd>Make.com</dd><dt>Destination</dt><dd>Zoho CRM Contacts</dd><dt>Logic</dt><dd>Routers, variables, filters, tier mapping, API updates</dd><dt>States</dt><dd>Free Tier, Ignite, Growth, Scale, Canceled</dd></dl><div class="stack-list"><span class="chip">Stripe</span><span class="chip">Make</span><span class="chip">Zoho</span><span class="chip">API</span><span class="chip">Routing</span></div></aside>
+      </div>
+    </section>
+
+    <section class="cta-section"><div class="container"><div class="cta-card"><div><p class="kicker">Next case study</p><h2>See the operations background behind the automation work.</h2></div><div class="cta-actions"><a class="btn primary" href="property-operations.html">Property operations</a><a class="btn secondary" href="../work.html">All work</a></div></div></div></section>
+  </main>
+
+  <footer><div class="container footer-row"><span>© 2026 Karen Ortega</span><span><a href="../work.html">Work</a> · <a href="../about.html">About</a> · <a href="../resume.html">Résumé</a></span></div></footer>
+</body>
+</html>
